@@ -2,7 +2,7 @@
 title: "Version 3"
 ---
 
-// TODO: (Kristopher Paulsen)  Version needs it's own section
+// TODO: (Kristopher Paulsen) Version needs it's own section
 {/* | [version](#version)                         | Specifies the version of the config file to use.                                                                                                                                                   | */}
 
 ## Breaking Changes
@@ -16,7 +16,7 @@ agent:
   # nested fields from "Agent Configuration"
   # ...
 
-endpoints:   # <---- *new* Top level field
+endpoints: # <---- *new* Top level field
 ```
 
 _For a complete list of fields, checkout [agent configuration](/docs/agent/config/v3/#agent-configuration)._
@@ -26,6 +26,7 @@ _For a complete list of fields, checkout [agent configuration](/docs/agent/confi
 Below are a collection of different agent configurations. Simply copy, replace any placeholder or example values with your own, and add it to your `ngrok.yml` file.
 
 ### Basic
+
 ```yaml
 version: 3
 agent:
@@ -38,6 +39,7 @@ endpoints:
 ```
 
 ### Multiple Endpoints
+
 ```yaml
 version: 3
 agent:
@@ -57,6 +59,7 @@ endpoints:
 ```
 
 ### Endpoint with an inline traffic policy
+
 ```yaml
 version: 3
 agent:
@@ -69,18 +72,19 @@ endpoints:
     traffic_policy:
       inbound:
         - actions:
-          - type: custom-response
-            config:
-              status_code: 200
-              content: hello, traffic policy!
-              headers:
-                content-type: text/plain
+            - type: custom-response
+              config:
+                status_code: 200
+                content: hello, traffic policy!
+                headers:
+                  content-type: text/plain
     upstream:
       url: 8080
       protocol: http1
 ```
 
 ### Endpoints with a traffic policy (file path)
+
 ```yaml
 version: 3
 agent:
@@ -277,7 +281,7 @@ The following is a list of options that can be configured at the root of your co
 | [remote_management](#remote_management)     | Set this to `true` to allow the ngrok agent to be remotely managed (stop, restart, update). Defaults to `true`.                                                                                    |
 | [root_cas](#root_cas)                       | The root certificate authorities used to validate the TLS connection to the ngrok server.                                                                                                          |
 | [connect_url](#connect_url)                 | This is the URL of the ngrok server to connect to. You should only set this if you are using a custom ingress URL.                                                                                 |
-| [endpoints](#endpoint-configurations)                         | A map of names to tunnel definitions. See [V2 agent config tunnel definitions](/docs/agent/config/v2/#tunnel-configurations) for more details.                                                     |
+| [endpoints](#endpoint-configurations)       | A map of names to tunnel definitions. See [V2 agent config tunnel definitions](/docs/agent/config/v2/#tunnel-configurations) for more details.                                                     |
 | [update_channel](#update_channel)           | The update channel determines the stability of released builds to update to. Use `stable` for all production deployments.                                                                          |
 | [update_check](#update_check)               | This tells the ngrok agent if it should check for updates. Defaults to `true`.                                                                                                                     |
 | [web_addr](#web_addr)                       | Network address to bind on for serving the local web interface and api.                                                                                                                            |
